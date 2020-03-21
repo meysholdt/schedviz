@@ -1,4 +1,9 @@
 FROM gitpod/workspace-full:latest
+
+USER root
+
+# this installes libtinfo.so.5 which is needed by bazle.
+RUN apt-get update && apt-get install libncurses5
                     
 USER gitpod
 

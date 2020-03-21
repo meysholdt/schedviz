@@ -2,6 +2,7 @@ tasks:
   - init: |
       yarn install
       yarn bazel build schedviz
+      yarn bazel build //server:server
       mkdir /workspace/schedviz/traces
     command: |
       yarn bazel run server -- -- -storage_path="/workspace/schedviz/traces"

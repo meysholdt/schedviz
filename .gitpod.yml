@@ -1,9 +1,12 @@
 tasks:
   - init: |
       yarn install
-      yarn bazel build
+      yarn bazel build schedviz
       mkdir /workspace/schedviz/traces
     command: |
       yarn bazel run server -- -- -storage_path="/workspace/schedviz/traces"
 image:
   file: .gitpod.Dockerfile
+ports:
+  - port: 7402
+    onOpen: open-browser
